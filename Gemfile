@@ -12,7 +12,7 @@ gem 'devise', '~> 3.3.0'
 gem 'paperclip', '~> 4.2.0'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'masonry-rails'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 group :development, :test do
