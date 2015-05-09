@@ -24,10 +24,13 @@ class PinsController < ApplicationController
 	end
 
 	def edit
+		if @pin.user != current_user
+			redirect_to root_path
+		end
 	end
 
 	def update
-		if @pin.update(pin_params)
+		if @pin.update(pin_params) && @pin.user == current_user
 			redirect_to @pin, notice: "Pin was successfully updated"
 		else
 			render 'edit'
@@ -35,8 +38,12 @@ class PinsController < ApplicationController
 	end
 
 	def destroy
-		@pin.destroy
-		redirect_to root_path
+		if @pin.user == current_user
+			@pin.destroy
+			redirect_to root_path
+		else
+			redirect_to root_path
+		end
 	end
 
 	def upvote
