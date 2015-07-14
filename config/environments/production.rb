@@ -3,7 +3,7 @@ Rails.application.configure do
 
   config.eager_load = true
 
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
   config.serve_static_assets = false
 
@@ -20,16 +20,15 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.active_record.dump_schema_after_migration = false
-  
-  
+
   #AWS S3 Paperclip Settings
-  
+
   config.paperclip_defaults = {
-  	:storage => :s3,
-  	:s3_credentials => {
-  		:bucket => ENV['S3_BUCKET'],
-  		:access_key_id => ENV['S3_ID'],
-  		:secret_access_key => ENV['S3_SECRET']
-  	}
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['S3_BUCKET'],
+      :access_key_id => ENV['S3_ID'],
+      :secret_access_key => ENV['S3_SECRET']
+    }
   }
 end
