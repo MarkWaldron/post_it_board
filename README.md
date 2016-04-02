@@ -1,1 +1,1 @@
-# pinterest_clone
+# Post It Board
